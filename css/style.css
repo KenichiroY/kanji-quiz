@@ -1,0 +1,788 @@
+/* ========================================
+   漢字れんしゅう - スタイルシート
+   ======================================== */
+
+:root {
+    /* カラーパレット */
+    --color-primary: #4a90d9;
+    --color-primary-dark: #3a7bc8;
+    --color-primary-light: #e8f2fc;
+    --color-accent: #ff7b54;
+    --color-accent-dark: #e56a45;
+    --color-success: #4caf50;
+    --color-success-light: #e8f5e9;
+    --color-warning: #ffc107;
+    --color-bg: #faf9f7;
+    --color-card: #ffffff;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-border: #e0e0e0;
+    
+    /* フォント */
+    --font-main: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    
+    /* サイズ */
+    --radius: 12px;
+    --radius-lg: 16px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* ========================================
+   ヘッダー
+   ======================================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0 1.5rem;
+    border-bottom: 2px solid var(--color-border);
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.admin-link {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: all 0.2s;
+}
+
+.admin-link:hover {
+    background: var(--color-card);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* ========================================
+   ステップセクション
+   ======================================== */
+
+.step {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* ========================================
+   チェックボックス・ラジオボタングリッド
+   ======================================== */
+
+.radio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-card,
+.radio-card {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox-card input,
+.radio-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--color-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.2s;
+    min-height: 60px;
+}
+
+.checkbox-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--color-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.2s;
+    min-height: 70px;
+}
+
+.checkbox-card input:checked + .checkbox-label,
+.radio-card input:checked + .radio-label {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+    color: var(--color-primary-dark);
+}
+
+.checkbox-label:hover,
+.radio-label:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.checkbox-label .unit-name {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.checkbox-label .grade-badge {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    margin-top: 0.25rem;
+}
+
+/* ========================================
+   ボタン
+   ======================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+    background: var(--color-card);
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-accent {
+    background: var(--color-accent);
+    color: white;
+}
+
+.btn-accent:hover:not(:disabled) {
+    background: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   情報テキスト
+   ======================================== */
+
+.info-text {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-primary-light);
+    border-radius: var(--radius);
+}
+
+/* ========================================
+   問題表示
+   ======================================== */
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.quiz-progress {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.question-card {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--color-primary-light);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.question-number {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.question-meta {
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+}
+
+.question-content {
+    padding: 1.25rem;
+    font-size: 1.375rem;
+    line-height: 2;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.question-content:hover {
+    background: #f9f9f9;
+}
+
+.question-content:active {
+    background: #f0f0f0;
+}
+
+/* 空欄表示（マス目） */
+.blank-box {
+    display: inline-block;
+    text-align: center;
+    vertical-align: baseline;
+    margin: 0 4px;
+    position: relative;
+}
+
+.blank-box .reading {
+    position: absolute;
+    bottom: calc(100% + 1px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65em;
+    color: var(--color-accent);
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.blank-box .boxes {
+    display: inline-flex;
+    gap: 2px;
+}
+
+.blank-box .box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid var(--color-primary);
+    background: white;
+    vertical-align: middle;
+    line-height: 1;
+    padding-bottom: 0.05em;
+}
+
+.blank-box .answer-char {
+    color: transparent;
+    font-weight: 500;
+    transition: color 0.3s;
+    line-height: 1;
+    margin-top: -0.05em;
+}
+
+/* 空欄表示（かっこ） */
+.blank-bracket {
+    display: inline-block;
+    text-align: center;
+    vertical-align: baseline;
+    margin: 0 4px;
+    position: relative;
+}
+
+.blank-bracket .reading {
+    position: absolute;
+    bottom: calc(100% + 1px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65em;
+    color: var(--color-accent);
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.blank-bracket .bracket-content {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.blank-bracket .answer-text {
+    color: transparent;
+    transition: color 0.3s;
+    display: inline-block;
+    min-width: 1.5em;
+}
+
+/* 解答表示時 */
+.question-card.revealed .answer-char,
+.question-card.revealed .answer-text {
+    color: var(--color-accent);
+}
+
+.question-card.revealed .blank-box .box {
+    background: var(--color-success-light);
+    border-color: var(--color-success);
+}
+
+.question-card.revealed .blank-bracket .bracket-content {
+    color: var(--color-success);
+}
+
+.tap-hint-header {
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+
+.quiz-footer {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-border);
+}
+
+/* ========================================
+   管理画面
+   ======================================== */
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.admin-nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tab-btn {
+    padding: 0.625rem 1.25rem;
+    background: var(--color-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.tab-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.admin-section {
+    display: none;
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.admin-section.active {
+    display: block;
+}
+
+.section-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+/* テーブル */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.data-table th {
+    background: var(--color-primary-light);
+    font-weight: 500;
+    color: var(--color-primary-dark);
+}
+
+.data-table tr:hover {
+    background: #f9f9f9;
+}
+
+.data-table .actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.data-table .btn-icon {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.8125rem;
+}
+
+/* フォーム */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    margin-bottom: 0.375rem;
+    color: var(--color-text);
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.form-hint {
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+    margin-top: 0.25rem;
+}
+
+/* モーダル */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.modal-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text-light);
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--color-text);
+}
+
+.modal-body {
+    padding: 1.25rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* アラート */
+.alert {
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
+}
+
+.alert-success {
+    background: var(--color-success-light);
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.alert-error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* CSVセクション */
+.csv-section {
+    padding: 1.25rem;
+    background: #f5f5f5;
+    border-radius: var(--radius);
+    margin-top: 1rem;
+}
+
+.csv-section h4 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.csv-format {
+    font-family: monospace;
+    font-size: 0.8125rem;
+    background: var(--color-card);
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    overflow-x: auto;
+}
+
+/* ========================================
+   レスポンシブ
+   ======================================== */
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .checkbox-grid,
+    .radio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn-group .btn {
+        width: 100%;
+    }
+    
+    .question-content {
+        font-size: 1.25rem;
+    }
+    
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .admin-nav {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .data-table {
+        font-size: 0.875rem;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 0.5rem;
+    }
+}

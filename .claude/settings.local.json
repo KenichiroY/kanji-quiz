@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(chcp 65001)",
+      "Bash(php init_db.php:*)",
+      "Bash(where:*)",
+      "Bash(dir \"C:\\\\xampp\\\\php\\\\php.exe\")",
+      "Bash(dir \"C:\\\\wamp64\\\\bin\\\\php\\\\*\\\\php.exe\")"
+    ]
+  }
+}

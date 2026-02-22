@@ -13,7 +13,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          insecure_ignore_host_key: true
+          fingerprint: "AAAAC3NzaC1lZDI1NTE5AAAAINxVQhyWPg1Zc87zOKjZlpXiGcez2IstUMPoYwp2iIGE"
           script: |
             cd ~/yahara-net.com/public_html/app/kanji-quiz
             git pull origin main

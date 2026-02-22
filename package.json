@@ -1,0 +1,15 @@
+{
+  "name": "kanji-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "extract_kanji_readings.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2"
+  }
+}

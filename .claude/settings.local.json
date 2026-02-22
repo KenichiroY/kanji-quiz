@@ -7,7 +7,27 @@
       "Bash(php init_db.php:*)",
       "Bash(where:*)",
       "Bash(dir \"C:\\\\xampp\\\\php\\\\php.exe\")",
-      "Bash(dir \"C:\\\\wamp64\\\\bin\\\\php\\\\*\\\\php.exe\")"
+      "Bash(dir \"C:\\\\wamp64\\\\bin\\\\php\\\\*\\\\php.exe\")",
+      "Bash(sqlite3:*)",
+      "Bash(curl:*)",
+      "Bash(gzip:*)",
+      "Bash(dir:*)",
+      "Bash(php:*)",
+      "Bash(cmd /c \"where php\")",
+      "Bash(cmd /c \"dir /s /b C:\\\\*php.exe 2>nul | findstr /i php.exe\")",
+      "Bash(cmd /c \"dir /s /b D:\\\\*php.exe 2>nul\")",
+      "Bash(powershell -Command:*)",
+      "Bash(cmd /c \"dir C:\\\\Users\\\\PC_User\\\\Downloads\\\\php* /ad 2>nul\")",
+      "Bash(cmd /c \"dir /b C:\\\\Users\\\\PC_User\\\\Downloads 2>nul\")",
+      "Bash(node --version:*)",
+      "Bash(node extract_kanji_readings.js:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(node import_kanji_readings.js:*)",
+      "Bash(node verify_readings.js:*)",
+      "Bash(node update_kanji_readings.js:*)",
+      "Bash(node:*)",
+      "Bash(cd:*)"
     ]
   }
 }

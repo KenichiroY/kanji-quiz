@@ -27,7 +27,8 @@
       "Bash(node verify_readings.js:*)",
       "Bash(node update_kanji_readings.js:*)",
       "Bash(node:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(git -C /home/claude-code-user/kanji-quiz log --oneline -10)"
     ]
   }
 }

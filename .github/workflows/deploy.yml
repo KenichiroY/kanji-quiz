@@ -14,5 +14,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ~/yahara-net.com/public_html/app/kanji-quiz
+            cd ~/eduworks.jp/public_html/app/kanji-quiz
             git pull origin main
